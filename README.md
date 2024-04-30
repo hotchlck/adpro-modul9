@@ -2,23 +2,23 @@
 **Salma Kurnia Dewi (2206026681)**
 
 ## 1. What are the key differences between unary, server streaming, and bi-directional streaming RPC (Remote Procedure Call) methods, and in what scenarios would each be most suitable?
-      - Unary RPC: This is the simplest method, where the client sends a single request to the server and waits to receive a single response from the server. 
-      Unary RPC is typically used in simple request-response scenarios where no additional interaction with the request data is needed, such as retrieving specific data from the server or in authentication/authorization systems, form submissions.
-      - Server Streaming RPC: In this method, the client sends a single request and the server responds with a stream of data. 
-      The server sends data repeatedly through the same connection so that the sent data is pieces of data that form larger data. 
-      This method is typically used when the client needs the server to send a large amount of data, such as retrieving a large volume of data from a database or sending stock prices, news, or large datasets in pieces.
-      - Bi-Directional Streaming RPC: This method allows both parties, both the client and the server, to send a series of messages independently using a read-write stream in the same or opposite direction simultaneously. 
-      This is suitable for use when the client and server need to interact to send and receive data in real-time, such as chat services or in applications like collaborative editing or real-time games.
+- Unary RPC: This is the simplest method, where the client sends a single request to the server and waits to receive a single response from the server. 
+Unary RPC is typically used in simple request-response scenarios where no additional interaction with the request data is needed, such as retrieving specific data from the server or in authentication/authorization systems, form submissions.
+- Server Streaming RPC: In this method, the client sends a single request and the server responds with a stream of data. 
+The server sends data repeatedly through the same connection so that the sent data is pieces of data that form larger data. 
+This method is typically used when the client needs the server to send a large amount of data, such as retrieving a large volume of data from a database or sending stock prices, news, or large datasets in pieces.
+- Bi-Directional Streaming RPC: This method allows both parties, both the client and the server, to send a series of messages independently using a read-write stream in the same or opposite direction simultaneously. 
+This is suitable for use when the client and server need to interact to send and receive data in real-time, such as chat services or in applications like collaborative editing or real-time games.
 
 ## 2. What are the potential security considerations involved in implementing a gRPC service in Rust, particularly regarding authentication, authorization, and data encryption?
-      - Authentication: gRPC supports several authentication methods, such as SSL/TLS, OAuth2, token-based authentication, or as simple as username and password. 
-      When implementing a gRPC service in Rust, we need to verify the identity of the user or service. This can be achieved by using tokens like JWT or through integration with an OAuth2 system.
-      - Authorization: After the authentication process, appropriate permissions are required. gRPC supports several authorization methods, such as Role-Based Access Control (RBAC) and Attribute-Based Access Control (ABAC). 
-      Authorization management is also needed to regulate access to resources based on established roles or rules, and can be implemented through middleware.
-      - Data Encryption: Data transferred over the network needs to be encrypted to protect against tampering and eavesdropping. 
-      To secure a gRPC service, we can use SSL/TLS to encrypt the data transferred. In addition, each piece of data sent by both the server and the client needs to be separately encrypted to ensure the privacy of the data sent.
+- Authentication: gRPC supports several authentication methods, such as SSL/TLS, OAuth2, token-based authentication, or as simple as username and password. 
+When implementing a gRPC service in Rust, we need to verify the identity of the user or service. This can be achieved by using tokens like JWT or through integration with an OAuth2 system.
+- Authorization: After the authentication process, appropriate permissions are required. gRPC supports several authorization methods, such as Role-Based Access Control (RBAC) and Attribute-Based Access Control (ABAC). 
+Authorization management is also needed to regulate access to resources based on established roles or rules, and can be implemented through middleware.
+- Data Encryption: Data transferred over the network needs to be encrypted to protect against tampering and eavesdropping. 
+To secure a gRPC service, we can use SSL/TLS to encrypt the data transferred. In addition, each piece of data sent by both the server and the client needs to be separately encrypted to ensure the privacy of the data sent.
 
-      Unlike REST, gRPC enforces authentication/authorization/encryption multiple times for a single stream request, whereas for REST, a single request only needs validation once because the connection is closed after the response. 
+Unlike REST, gRPC enforces authentication/authorization/encryption multiple times for a single stream request, whereas for REST, a single request only needs validation once because the connection is closed after the response. 
 
 ## 3. What are the potential challenges or issues that may arise when handling bidirectional streaming in Rust gRPC, especially in scenarios like chat applications?
       - Concurrency: Clients may send and receive many messages simultaneously, so concurrency must be considered when implementing bidirectional streaming in Rust gRPC. 
