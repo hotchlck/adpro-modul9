@@ -80,7 +80,7 @@ Disadvantages of HTTP/2:
 Compared to HTTP/1.1, HTTP/2’s ability to maintain a single connection for multiple requests and responses can result in higher overhead costs in terms of performance and memory. This might make small data transfers more costly with HTTP/2, even though it is more efficient for handling larger amounts of data.
 
 ## 9. How does the request-response model of REST APIs contrast with the bidirectional streaming capabilities of gRPC in terms of real-time communication and responsiveness?
-EST APIs typically follow a request-response model where the client sends a request and waits for a response from the server. This model does not inherently support streaming, which limits its capacity for real-time communication. 
+REST APIs typically follow a request-response model where the client sends a request and waits for a response from the server. This model does not inherently support streaming, which limits its capacity for real-time communication. 
 Each request usually requires a new connection to the server, which can introduce latency and reduce responsiveness, especially in scenarios that require frequent or continuous data exchange.
 
 On the other hand, gRPC supports bidirectional streaming, allowing both the client and server to send a stream of data to each other in real-time over a single, long-lived connection. 
