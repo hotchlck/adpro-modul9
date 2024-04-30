@@ -88,10 +88,9 @@ This enables more efficient and rapid two-way communication without the need to 
 gRPC’s streaming is particularly beneficial for applications that demand quick, efficient, and real-time interactions.
 
 The key differences are:
-
-Connection Management: gRPC maintains a single connection for multiple requests and responses, reducing the overhead and latency associated with establishing new connections as in REST APIs.
-Real-Time Data Exchange: gRPC’s bidirectional streaming allows for a more “real-time” experience due to its asynchronous message exchange, which is not possible with the synchronous request-response pattern of REST APIs.
-Efficiency and Responsiveness: gRPC’s use of HTTP/2 features like multiplexing and header compression contributes to its efficiency, making it more suitable for scenarios where high responsiveness and real-time communication are required.
+- Connection Management: gRPC maintains a single connection for multiple requests and responses, reducing the overhead and latency associated with establishing new connections as in REST APIs.
+- Real-Time Data Exchange: gRPC’s bidirectional streaming allows for a more “real-time” experience due to its asynchronous message exchange, which is not possible with the synchronous request-response pattern of REST APIs.
+- Efficiency and Responsiveness: gRPC’s use of HTTP/2 features like multiplexing and header compression contributes to its efficiency, making it more suitable for scenarios where high responsiveness and real-time communication are required.
 
 ## 10. What are the implications of the schema-based approach of gRPC, using Protocol Buffers, compared to the more flexible, schema-less nature of JSON in REST API payloads?
 1. Schema-Based Approach (gRPC with Protocol Buffers):
