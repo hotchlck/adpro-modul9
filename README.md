@@ -30,27 +30,27 @@
       - Long-Lived Connections: Long-lived connections can complicate load balancing because many long-lived connections can form where the connection cannot be terminated due to gRPC, potentially burdening the server.
 
 ## 4. What are the advantages and disadvantages of using the tokio_stream::wrappers::ReceiverStream for streaming responses in Rust gRPC services?
-      Advantages:
-      1. ***Convenience***: `ReceiverStream` simplifies stream handling by providing a wrapper for `tokio::sync::mpsc::Receiver`, making it easier to work with asynchronous streams.
-      2. ***Compatibility***: `ReceiverStream` is compatible with `tonic::Streaming`, so it can be used to send stream responses in Rust gRPC services.
-      3. ***Integration***: `Tokio-Stream` is integrated with the Tokio ecosystem, which allows for working with streams asynchronously.
-      4. ***Transformation***: `ReceiverStream` can transform a tokio receiver into a stream that can be processed by tonic.
-      5. ***Asynchronous***: It accelerates data processing.
+Advantages:
+1. ***Convenience***: `ReceiverStream` simplifies stream handling by providing a wrapper for `tokio::sync::mpsc::Receiver`, making it easier to work with asynchronous streams.
+2. ***Compatibility***: `ReceiverStream` is compatible with `tonic::Streaming`, so it can be used to send stream responses in Rust gRPC services.
+3. ***Integration***: `Tokio-Stream` is integrated with the Tokio ecosystem, which allows for working with streams asynchronously.
+4. ***Transformation***: `ReceiverStream` can transform a tokio receiver into a stream that can be processed by tonic.
+5. ***Asynchronous***: It accelerates data processing.
 
-      Disadvantages:
-      1. ***Error Handling***: `ReceiverStream` does not provide built-in error handling, so error handling must be implemented manually when using `ReceiverStream`. If an error occurs when receiving a message, `ReceiverStream` does not have a built-in mechanism that can help handle it.
-      2. ***Support***: `ReceiverStream` only supports one-way connections, so it is not suitable for bidirectional streaming in Rust gRPC services.
-      3. ***Complexity***: Due to asynchronous programming, it can be complex to implement.
-      4. ***Authentication and Authorization***: For each piece of data, authentication and authorization need to be performed, which can add to the complexity.
+Disadvantages:
+1. ***Error Handling***: `ReceiverStream` does not provide built-in error handling, so error handling must be implemented manually when using `ReceiverStream`. If an error occurs when receiving a message, `ReceiverStream` does not have a built-in mechanism that can help handle it.
+2. ***Support***: `ReceiverStream` only supports one-way connections, so it is not suitable for bidirectional streaming in Rust gRPC services.
+3. ***Complexity***: Due to asynchronous programming, it can be complex to implement.
+4. ***Authentication and Authorization***: For each piece of data, authentication and authorization need to be performed, which can add to the complexity.
 
 ## 5. In what ways could the Rust gRPC code be structured to facilitate code reuse and modularity, promoting maintainability and extensibility over time?
-      - Separate Definition Files: Define services and messages in separate .proto files so that message definitions can be reused by other services. This allows for better organization and reusability of code.
-      - Reusable Functions and Structs: Determine reusable functions and structs in different .rs files so they can be used by other services. This promotes code reuse and makes the codebase more manageable.
-      - Separate Implementation Files: Arrange the implementation of services and messages in different .rs files to facilitate maintenance and extensibility. This allows for the addition, modification, or deletion of functionalities without affecting other parts of your system.
-      - Separate Modules: Create separate modules between the Rust gRPC code and business logic. This enhances the modularity of the code and separates concerns, making the code easier to understand and maintain.
-      - External Libraries: Use external libraries for common functionalities that can be reused. This reduces the amount of code you need to write and maintain, and can also improve the performance of your application.
-      - Traits and Generics: Use traits and generics for flexible components to increase maintainability and extensibility. This allows you to write code that is more abstract and flexible, and can be reused in different contexts.
-      - Interface Implementation: Rust gRPC provides a way to improve maintainability and extensibility because changes and additions to features can be made more easily. With proto, an interface is created that can be implemented by a class in Rust, facilitating code extensibility.
+- Separate Definition Files: Define services and messages in separate .proto files so that message definitions can be reused by other services. This allows for better organization and reusability of code.
+- Reusable Functions and Structs: Determine reusable functions and structs in different .rs files so they can be used by other services. This promotes code reuse and makes the codebase more manageable.
+- Separate Implementation Files: Arrange the implementation of services and messages in different .rs files to facilitate maintenance and extensibility. This allows for the addition, modification, or deletion of functionalities without affecting other parts of your system.
+- Separate Modules: Create separate modules between the Rust gRPC code and business logic. This enhances the modularity of the code and separates concerns, making the code easier to understand and maintain.
+- External Libraries: Use external libraries for common functionalities that can be reused. This reduces the amount of code you need to write and maintain, and can also improve the performance of your application.
+- Traits and Generics: Use traits and generics for flexible components to increase maintainability and extensibility. This allows you to write code that is more abstract and flexible, and can be reused in different contexts.
+- Interface Implementation: Rust gRPC provides a way to improve maintainability and extensibility because changes and additions to features can be made more easily. With proto, an interface is created that can be implemented by a class in Rust, facilitating code extensibility.
 
 ## 6. In the MyPaymentService implementation, what additional steps might be necessary to handle more complex payment processing logic?
 
